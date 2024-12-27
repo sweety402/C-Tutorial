@@ -1,0 +1,31 @@
+name: compile C codes
+run-name: ${{ github.actor }} is testing out GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  Terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Installing GCC on ${{ runner.os }}
+        run: |
+          sudo apt update && sudo apt install gcc
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Compiling all C program present
+        run: |
+          c_files=`ls *.c`
+          for c_file in $c_files; do 
+              echo "Compiling $c_file"; 
+              gcc -o test.c $c_file; 
+              if [[ $? == 0 ]]; then 
+                echo "passed for $c_file"
+              else
+                echo "Failed for $c_file" 
+              fi;
+          done
