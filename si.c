@@ -5,7 +5,7 @@ int si (int principal,int rate,int time){
 }
 int main(){
     int principal,rate,time;
-    printf("enter:pricipal,rate %,time year");
+    printf("enter:pricipal,rate\%,time year");
     scanf("%d,%d,%d",&principal,&rate,&time);
     printf("simple interest:%d",si(principal,rate,time));
     return 0;
