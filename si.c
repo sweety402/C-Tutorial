@@ -10,3 +10,8 @@ int main(){
     printf("simple interest:%d",si(principal,rate,time));
     return 0;
 }
+/*
+output 
+enter:pricipal,rate %,time year5000,10,5
+simple interest:2500
+*/
